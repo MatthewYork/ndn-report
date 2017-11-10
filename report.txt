@@ -15,6 +15,10 @@ Inetutils is the foundational library for countless application around the world
 Implementation
 ==============
 
+//Repository Organization and Implementation Goals
+The standard inetutils library was forked from its mirrored location on GitHub for its adaptation to NDN. The project is currently a private repository, but will be available publicly at the end of class or upon your request. In addition, a separate repository was created to build C++ classes for NDN web calls which mimick the underlying Socket connections inside applications such as Telnet (the focus of this project). 
+
+The intermediate goal was to ensure that the interfaces to the NDN web calls were similar to the original ones. The long term goal is for the interfaces to be the exact same. If this is achieved, it will mean that using HTTP networking or NDN networking will be a matter of package inclusion (a benefit of the straightforward inclusion style of C/C++) and no telnet application code will need to be changed. In the short term, however, it was deemed beneficial to pre-fix socket calls with "ndn" for ease of development and debugging. These method name changes are reflected in all telnet application files that require socket connections.
 
 
 Experimental Analysis
