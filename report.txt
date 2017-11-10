@@ -4,11 +4,12 @@ CS 613 - Telnet-NDN Progress Report
 
 Introduction
 ============
+NDN stands for Named Data Networking, a project to redefine fundamental network architecture to meet the networking goals of the 21st century. Named data replaces traditional IP-based routing with a content-centric network model where each piece of information resides at a unique name. A content-centric model of information exchange adds greater opportunities for in-network storage (caching, etc.) and built in trust mechanisms through content signing and encryption.
 
 
 Motivation
 ==========
-
+Inetutils is the foundational library for countless application around the world and in space. For this reason, it is a perfect candidate for adaptation to Named Data Networking protocols. We propose a minimally-invasive replacement of socket method calls in inetutils with no disturbance to dependent applications.
 
 
 Implementation
