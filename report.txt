@@ -23,7 +23,9 @@ The intermediate goal was to ensure that the interfaces to the NDN web calls wer
 
 Experimental Analysis
 =====================
-Experimental analysis will be conducted with Wireshark through the Wireshark NDN plugin. This will allow us to analyze network capacity, overhead, etc. relative to the original telnet application. The experimental analysis has not yet commenced, but is expected to shortly.
+Experimental analysis will be conducted with Wireshark through the Wireshark NDN plugin. This will allow us to analyze network capacity, overhead, etc. relative to the original telnet application. In order to be able to observe packet flow, two Named Data Forwarder instances (or NFDs) are required. Otherwise, the traffic stays inside of the single NFD routing mechanisms and goes undetected by other tools.
+
+The experimental analysis has not yet commenced, but is expected to shortly.
 
 
 Work in Progress
