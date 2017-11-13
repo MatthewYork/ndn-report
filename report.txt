@@ -23,12 +23,12 @@ The intermediate goal was to ensure that the interfaces to the NDN web calls wer
 
 Experimental Analysis
 =====================
-
+Experimental analysis will be conducted with Wireshark through the Wireshark NDN plugin. This will allow us to analyze network capacity, overhead, etc. relative to the original telnet application. The experimental analysis has not yet commenced, but is expected to shortly.
 
 
 Work in Progress
 ================
-
+Currently, the telnet client is issuing commands over NDN, with packets visibly flowing through the network via a separate program which watches the network. 
 
 
 Related Work
