@@ -22,7 +22,7 @@ The standard inetutils library was forked from its mirrored location on GitHub f
 
 The intermediate goal is to ensure that the interfaces to the NDN web calls were similar to the original ones. In this way, the code changed in applications like telnet is minimized to method signatures and include statements. The long term goal is for the interfaces to be the exact same. If this is achieved, it will mean that using HTTP networking or NDN networking will be a matter of package inclusion (a benefit of the straightforward inclusion style of C/C++) and no telnet application code will need to be changed. In the short term, however, it was deemed beneficial to pre-fix socket calls with "ndn" for ease of development and debugging. These method name changes are reflected in all telnet application files that require socket connections.
 
-Telnet
+The Telnet system works as a team of two app binaries, telnet and telnetd, with the former being the client and the latter being the server. The client negotiates a connection to the server and issues commands to the server to which it attempts to comply. Both telnet and telnetd rely on socket connection calls, with the client connecting directly to HTTP sockets and the server using a proxy linux service to handle incoming connection requests. The client networking logic only required method signature changes (detailed above) at the application level to accept NDN connections. NDN endpoints were simply used instead of DNS. The telnetd server network configuration was replaced wholesale with a socket implementation so that the NDN networking adaptations would work similarly to telnet.
 
 Experimental Analysis
 =====================
@@ -33,7 +33,7 @@ The experimental analysis has not yet commenced, but is expected to shortly.
 
 Work in Progress
 ================
-Currently, the telnet client is issuing commands over NDN, with packets visibly flowing through the network via a separate program which watches the network. 
+Currently, the telnet client is issuing commands over NDN, with packets observably flowing through the network via a separate program which watches the network. 
 
 
 Related Work
