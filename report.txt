@@ -9,17 +9,20 @@ NDN stands for Named Data Networking, a project to redefine fundamental network 
 
 Motivation
 ==========
-Inetutils is the foundational library for countless application around the world and in space. For this reason, it is a perfect candidate for adaptation to Named Data Networking protocols. We propose a minimally-invasive replacement of socket method calls in inetutils with no disturbance to dependent applications.
+Inetutils is the foundational library for countless application around the world and in space. One of the applications bundled in the inetutils library is telent, a program for remote command of a terminal. It is similar in functionality to SSH, but does not secure the channel. Telnet makes a perfect candidate for adaptation to Named Data Networking protocols due to its simplicity and lack of orthogonal requirements (security, etc). 
+
+We propose a minimally-invasive replacement of socket method calls in inetutils with no disturbance to dependent applications. Furthermore, these socket replacement calls will be implemented in telnet as a model for named data networking in other bundled applications such as ftp. In addition, it will provide a useful metric for comparing named data viability versus traditional HTTP networking given that all application operations and constraints are the same, save which type of network is being utilized.
 
 
 Implementation
 ==============
 
 //Repository Organization and Implementation Goals
-The standard inetutils library was forked from its mirrored location on GitHub for its adaptation to NDN. The project is currently a private repository, but will be available publicly at the end of class or upon your request. In addition, a separate repository was created to build C++ classes for NDN web calls which mimick the underlying Socket connections inside applications such as Telnet (the focus of this project). 
+The standard inetutils library was forked from its mirrored location on GitHub for its adaptation to NDN. The project is currently a private repository, but will be available publicly at the end of class or upon your request. In addition, a separate repository houses C++ classes built for NDN web calls which mimick the underlying Socket connections inside applications such as Telnet (the focus of this project). 
 
-The intermediate goal was to ensure that the interfaces to the NDN web calls were similar to the original ones. The long term goal is for the interfaces to be the exact same. If this is achieved, it will mean that using HTTP networking or NDN networking will be a matter of package inclusion (a benefit of the straightforward inclusion style of C/C++) and no telnet application code will need to be changed. In the short term, however, it was deemed beneficial to pre-fix socket calls with "ndn" for ease of development and debugging. These method name changes are reflected in all telnet application files that require socket connections.
+The intermediate goal is to ensure that the interfaces to the NDN web calls were similar to the original ones. In this way, the code changed in applications like telnet is minimized to method signatures and include statements. The long term goal is for the interfaces to be the exact same. If this is achieved, it will mean that using HTTP networking or NDN networking will be a matter of package inclusion (a benefit of the straightforward inclusion style of C/C++) and no telnet application code will need to be changed. In the short term, however, it was deemed beneficial to pre-fix socket calls with "ndn" for ease of development and debugging. These method name changes are reflected in all telnet application files that require socket connections.
 
+Telnet
 
 Experimental Analysis
 =====================
